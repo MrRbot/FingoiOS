@@ -22,23 +22,23 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     var filteredRow4 = [Int]()
     var filteredRow5 = [Int]()
     
-    @IBOutlet weak var BingoCollectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var bingoCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        BingoCollectionView.delegate = self
-        BingoCollectionView.dataSource = self
-        BingoCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        bingoCollectionView.delegate = self
+        bingoCollectionView.dataSource = self
+        bingoCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
        
-        
-        fingoText.requestFingoText {
-            self.numberOfRows = sqrt(CGFloat(self.fingoText.textArray.count))
-            self.BingoCollectionView.reloadData()
-        }
+       
+        loadText()
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,7 +50,7 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        if let cell = BingoCollectionView.dequeueReusableCell(withReuseIdentifier: "bingoCell", for: indexPath) as? BingoCell {
+        if let cell = bingoCollectionView.dequeueReusableCell(withReuseIdentifier: "bingoCell", for: indexPath) as? BingoCell {
 
             cell.configCell(text: fingoText.textArray, index: indexPath.row)
             cell.delegate = self
@@ -63,7 +63,7 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: BingoCollectionView.layer.bounds.width / (numberOfRows + 0.1 )  , height: BingoCollectionView.layer.bounds.height / (numberOfRows + 1) )
+        return CGSize(width: bingoCollectionView.layer.bounds.width / (numberOfRows + 0.1 )  , height: bingoCollectionView.layer.bounds.height / (numberOfRows + 1) )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -77,7 +77,7 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
        
-        if let cell = BingoCollectionView.cellForItem(at: indexPath) as? BingoCell{
+        if let cell = bingoCollectionView.cellForItem(at: indexPath) as? BingoCell{
             cell.setSelectedState(index:indexPath.row)
             cell.isUserInteractionEnabled = false
             
@@ -194,6 +194,18 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func loadText(){
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        fingoText.clearTextArray()
+        fingoText.requestFingoText(category: "Classic") {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidesWhenStopped = true
+            self.numberOfRows = sqrt(CGFloat(self.fingoText.textArray.count))
+            self.bingoCollectionView.reloadData()
+        }
     }
 
 

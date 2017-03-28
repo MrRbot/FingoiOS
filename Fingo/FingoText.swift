@@ -24,7 +24,7 @@ class FingoText {
         return _textArray
     }
     
-    func requestFingoText(completed:@escaping completion) {
+    func requestFingoText(category:String, completed:@escaping completion) {
     
         _ref = FIRDatabase.database().reference()
     
@@ -32,26 +32,41 @@ class FingoText {
         
         _ref?.observe(FIRDataEventType.value, with: { (snapshot) in
             
-            if let value = snapshot.value as? NSArray{
-                print(value)
-                
-                for item in value {
-                    self._textArray.append(item as! String)
+            if let dict = snapshot.value as? Dictionary<String,AnyObject> {
+                if let items = dict[category] as? Dictionary<String,AnyObject> {
+                    var i = 0
+                    for _ in items {
+                        if let itm = items["\(i)"] as? String {
+                            self._textArray.append(itm)
+                            
+                            i += 1
+                            
+                        }
+                    }
+                    if let unicorn = items["unicorn"] as? String {
+                        self._textArray.shuffle()
+                        self._textArray.insert(unicorn, at: 12)
+                        print(unicorn)
+                    }
                     
+                    print(self._textArray)
+                    print(self._textArray.count)
+                    
+                    completed()
                 }
-                self._textArray.shuffle()
-                self._textArray.insert("PROSTIE", at: 12)
-                print(self._textArray)
-                completed()
-                
                 
             }
+            
+
            
         })
     
     }
     
     
+    func clearTextArray() {
+        _textArray = []
+    }
     
     
     
