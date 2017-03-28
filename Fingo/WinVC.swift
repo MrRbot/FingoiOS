@@ -10,10 +10,35 @@ import UIKit
 
 class WinVC: UIViewController {
 
+    @IBOutlet weak var wonLabel: UILabel!
+    @IBOutlet weak var leftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var unicornImageView: UIImageView!
+    
+    @IBOutlet weak var unicornHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var unicornWidthConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        unicornHeightConstraint.constant = 20.0
+        unicornWidthConstraint.constant = 30.0
+        self.view.layoutIfNeeded()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.0, options: [], animations: {
+            self.leftConstraint.constant = 100.0
+            self.unicornHeightConstraint.constant = 120.0
+            self.unicornWidthConstraint.constant = 130.0
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +47,9 @@ class WinVC: UIViewController {
     }
     
 
+    @IBAction func playAgainPressed(_ sender: Any) {
+       UserDefaults.standard.set(true, forKey: "firstTimeUnicornPressed")
+    }
     /*
     // MARK: - Navigation
 
