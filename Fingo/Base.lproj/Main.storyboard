@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,18 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fingo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPi-7c-crO">
-                                <rect key="frame" x="88" y="28" width="144" height="81.5"/>
-                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="60"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mhd-BJ-Tt9">
-                                <rect key="frame" x="16" y="209" width="288" height="150"/>
+                                <rect key="frame" x="16" y="40" width="288" height="278"/>
                                 <color key="backgroundColor" red="0.1960784314" green="0.070588235289999995" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="wLo-R7-JvY"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JUA-v1-vGV">
                                     <size key="itemSize" width="148" height="126"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -42,7 +32,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="aMR-Mz-h9g" customClass="CategoryCell" customModule="Fingo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="12" width="148" height="126"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="126"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="148" height="126"/>
@@ -50,7 +40,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic" textAlignment="center" lineBreakMode="clip" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hL0-5C-pOP">
                                                     <rect key="frame" x="8" y="8" width="132" height="110"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="8"/>
                                                     <color key="textColor" red="0.1960784314" green="0.070588235289999995" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -65,28 +55,43 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="categoryLabel" destination="hL0-5C-pOP" id="Fmv-pn-EzO"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="catSegue" id="9wm-SQ-ew8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a category:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysr-fP-aiA">
-                                <rect key="frame" x="16" y="165" width="288" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLR-vb-62Q">
+                                <rect key="frame" x="50" y="388" width="220" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jYF-kB-RA6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="START NOW!">
+                                    <color key="titleColor" red="0.25882352939999997" green="0.10980392160000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgainPressed:" destination="buU-bc-zDN" eventType="touchUpInside" id="g8v-RR-VdO"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="catSegue" id="QzR-99-bpa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fingo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPi-7c-crO">
+                                <rect key="frame" x="112" y="326" width="96" height="54.5"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1960784314" green="0.070588235289999995" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="mhd-BJ-Tt9" firstAttribute="centerY" secondItem="7sm-z2-MgV" secondAttribute="centerY" id="EiH-2C-zAI"/>
+                            <constraint firstItem="SLR-vb-62Q" firstAttribute="top" secondItem="uPi-7c-crO" secondAttribute="bottom" constant="8" id="5YG-22-2Eq"/>
                             <constraint firstAttribute="trailing" secondItem="mhd-BJ-Tt9" secondAttribute="trailing" constant="16" id="HQH-WZ-AhM"/>
-                            <constraint firstItem="ysr-fP-aiA" firstAttribute="leading" secondItem="7sm-z2-MgV" secondAttribute="leadingMargin" id="S5h-Xo-cs0"/>
-                            <constraint firstItem="uPi-7c-crO" firstAttribute="top" secondItem="vCr-Ge-sbf" secondAttribute="bottom" constant="8" id="SWv-pk-QSN"/>
+                            <constraint firstItem="mhd-BJ-Tt9" firstAttribute="top" secondItem="vCr-Ge-sbf" secondAttribute="bottom" constant="20" id="KDo-Cg-Var"/>
+                            <constraint firstItem="SLR-vb-62Q" firstAttribute="leading" secondItem="7sm-z2-MgV" secondAttribute="leading" constant="50" id="Vof-x1-frz"/>
                             <constraint firstItem="uPi-7c-crO" firstAttribute="centerX" secondItem="7sm-z2-MgV" secondAttribute="centerX" id="ZBX-gr-yU5"/>
                             <constraint firstItem="mhd-BJ-Tt9" firstAttribute="leading" secondItem="7sm-z2-MgV" secondAttribute="leading" constant="16" id="aSu-Ks-jn5"/>
-                            <constraint firstItem="ysr-fP-aiA" firstAttribute="trailing" secondItem="7sm-z2-MgV" secondAttribute="trailingMargin" id="fni-bk-ArK"/>
-                            <constraint firstItem="mhd-BJ-Tt9" firstAttribute="top" secondItem="ysr-fP-aiA" secondAttribute="bottom" constant="20" id="kdb-Jy-NkH"/>
+                            <constraint firstItem="arv-3D-y7a" firstAttribute="top" secondItem="mhd-BJ-Tt9" secondAttribute="bottom" constant="250" id="f74-fV-OEx"/>
+                            <constraint firstAttribute="trailing" secondItem="SLR-vb-62Q" secondAttribute="trailing" constant="50" id="fOZ-27-sdB"/>
+                            <constraint firstItem="uPi-7c-crO" firstAttribute="top" secondItem="mhd-BJ-Tt9" secondAttribute="bottom" constant="8" id="ft9-At-b55"/>
                         </constraints>
                     </view>
                     <connections>
@@ -95,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyb-rf-hhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946.37681159420299" y="23.64130434782609"/>
+            <point key="canvasLocation" x="-1087.5" y="21.12676056338028"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
@@ -120,7 +125,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bingoCell" id="NS3-Yc-IqB" customClass="BingoCell" customModule="Fingo" customModuleProvider="target">
-                                        <rect key="frame" x="42.5" y="0.0" width="203" height="184"/>
+                                        <rect key="frame" x="43" y="0.0" width="203" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="203" height="184"/>
@@ -128,7 +133,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group of friends... all on their phones" textAlignment="center" lineBreakMode="clip" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFP-9X-hXR">
                                                     <rect key="frame" x="8" y="8" width="187" height="168"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="8"/>
                                                     <color key="textColor" red="0.1960784314" green="0.070588235289999995" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -152,8 +157,8 @@
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fingo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em7-om-QPb">
-                                <rect key="frame" x="8" y="326" width="304" height="53"/>
-                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="39"/>
+                                <rect key="frame" x="8" y="326" width="304" height="54.5"/>
+                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -178,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-386" y="23"/>
+            <point key="canvasLocation" x="-225" y="23"/>
         </scene>
         <!--WinVC-->
         <scene sceneID="Fhr-fZ-Mib">
@@ -254,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGX-TM-Z3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="34.859154929577464"/>
+            <point key="canvasLocation" x="585" y="21"/>
         </scene>
     </scenes>
     <resources>

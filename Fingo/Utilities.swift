@@ -9,3 +9,8 @@
 import Foundation
 
 typealias completion = ()->()
+protocol ItemTappedDelegate {
+    func unicornTapped()
+    func itemTapped(index: Int)
+    func itemTappedToDeSelect(index:Int)
+}

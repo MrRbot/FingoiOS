@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol ItemTappedDelegate {
-    func unicornTapped()
-    func itemTapped(index: Int)
-    func itemTappedToDeSelect(index:Int)
-}
+
 
 class BingoCell: UICollectionViewCell {
     
