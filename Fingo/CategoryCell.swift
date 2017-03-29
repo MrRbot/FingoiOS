@@ -10,4 +10,14 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell {
     
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    
+    func configCell(text:[String], index: Int){
+       
+        self.categoryLabel.text = text[index]
+        
+        
+    }
+    
 }

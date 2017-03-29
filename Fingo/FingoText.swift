@@ -17,12 +17,19 @@ class FingoText {
    private var  _dataBaseHandle: FIRDatabaseHandle?
     
    private var _textArray = [String]()
+   private var _catArray = [String]()
     
     var textArray: [String] {
        
       
         return _textArray
     }
+    var catArray: [String] {
+        
+        
+        return _catArray
+    }
+    
     
     func requestFingoText(category:String, completed:@escaping completion) {
     
@@ -32,7 +39,9 @@ class FingoText {
         
         _ref?.observe(FIRDataEventType.value, with: { (snapshot) in
             
+            
             if let dict = snapshot.value as? Dictionary<String,AnyObject> {
+                
                 if let items = dict[category] as? Dictionary<String,AnyObject> {
                     var i = 0
                     for _ in items {
@@ -63,11 +72,34 @@ class FingoText {
     
     }
     
+    func requestCategories(completed:@escaping completion) {
+        _ref = FIRDatabase.database().reference()
+        
+        
+        
+        _ref?.observe(FIRDataEventType.value, with: { (snapshot) in
+            
+           
+            for group in snapshot.children {
+                self._catArray.append((group as AnyObject).key)
+            }
+            print(self._catArray)
+                    
+                    completed()
+            
+            
+            
+            
+        })
+    }
+    
     
     func clearTextArray() {
         _textArray = []
     }
-    
+    func clearCatArray() {
+        _catArray = []
+    }
     
     
 

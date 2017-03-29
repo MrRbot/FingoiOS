@@ -25,8 +25,8 @@ class WinVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        unicornHeightConstraint.constant = 20.0
-        unicornWidthConstraint.constant = 30.0
+        unicornHeightConstraint.constant = 0.0
+        unicornWidthConstraint.constant = 0.0
         self.view.layoutIfNeeded()
     }
     
@@ -34,7 +34,8 @@ class WinVC: UIViewController {
        
         
         UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.0, options: [], animations: {
-            self.leftConstraint.constant = 100.0
+            self.leftConstraint.constant = (self.view.frame.width / 2) - self.wonLabel.frame.width / 2
+            
             self.unicornHeightConstraint.constant = 120.0
             self.unicornWidthConstraint.constant = 130.0
             self.view.layoutIfNeeded()
@@ -49,6 +50,7 @@ class WinVC: UIViewController {
 
     @IBAction func playAgainPressed(_ sender: Any) {
        UserDefaults.standard.set(true, forKey: "firstTimeUnicornPressed")
+        
     }
     /*
     // MARK: - Navigation

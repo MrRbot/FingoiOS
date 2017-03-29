@@ -15,6 +15,7 @@ class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     var numberOfRows: CGFloat!
     
     let fingoText = FingoText()
+    var catToDisplay:String!
     
     var filteredRow1 = [Int]()
     var filteredRow2 = [Int]()
@@ -66,15 +67,15 @@ class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: bingoCollectionView.layer.bounds.width / (numberOfRows + 0.1 )  , height: bingoCollectionView.layer.bounds.height / (numberOfRows + 1) )
+        return CGSize(width: bingoCollectionView.layer.bounds.width / (numberOfRows + 0.3 )  , height: bingoCollectionView.layer.bounds.height / (numberOfRows + 1) )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.1
+        return 0.3
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
+        return 3.0
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -231,7 +232,7 @@ class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
         fingoText.clearTextArray()
-        fingoText.requestFingoText(category: "Classic") {
+        fingoText.requestFingoText(category: catToDisplay) {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.hidesWhenStopped = true
             self.numberOfRows = sqrt(CGFloat(self.fingoText.textArray.count))

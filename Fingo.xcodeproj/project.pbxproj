@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3A551BF886F4C1FEA11A319C /* Pods_FingoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4281A542636B549D8A47CF /* Pods_FingoUITests.framework */; };
+		3B400FD11E8B450C004589AF /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B400FD01E8B450C004589AF /* CategoriesVC.swift */; };
+		3B400FD31E8B463E004589AF /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B400FD21E8B463E004589AF /* CategoryCell.swift */; };
 		3B4C16D81E84C18500BB2455 /* WinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C16D71E84C18500BB2455 /* WinVC.swift */; };
 		3B4C16DD1E87A1DC00BB2455 /* FingoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C16DC1E87A1DC00BB2455 /* FingoText.swift */; };
 		3B4E53811E83733F00D74ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E53801E83733F00D74ED4 /* AppDelegate.swift */; };
-		3B4E53831E83733F00D74ED4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E53821E83733F00D74ED4 /* ViewController.swift */; };
+		3B4E53831E83733F00D74ED4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E53821E83733F00D74ED4 /* MainVC.swift */; };
 		3B4E53861E83733F00D74ED4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4E53841E83733F00D74ED4 /* Main.storyboard */; };
 		3B4E53881E83733F00D74ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4E53871E83733F00D74ED4 /* Assets.xcassets */; };
 		3B4E538B1E83733F00D74ED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4E53891E83733F00D74ED4 /* LaunchScreen.storyboard */; };
@@ -44,11 +46,13 @@
 
 /* Begin PBXFileReference section */
 		31E5E65408C1A71B7BB6F656 /* Pods-Fingo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fingo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fingo/Pods-Fingo.debug.xcconfig"; sourceTree = "<group>"; };
+		3B400FD01E8B450C004589AF /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
+		3B400FD21E8B463E004589AF /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		3B4C16D71E84C18500BB2455 /* WinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinVC.swift; sourceTree = "<group>"; };
 		3B4C16DC1E87A1DC00BB2455 /* FingoText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingoText.swift; sourceTree = "<group>"; };
 		3B4E537D1E83733F00D74ED4 /* Fingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4E53801E83733F00D74ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B4E53821E83733F00D74ED4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B4E53821E83733F00D74ED4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		3B4E53851E83733F00D74ED4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B4E53871E83733F00D74ED4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B4E538A1E83733F00D74ED4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,8 +108,9 @@
 		3B4C16D91E84C18F00BB2455 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3B4E53821E83733F00D74ED4 /* ViewController.swift */,
+				3B4E53821E83733F00D74ED4 /* MainVC.swift */,
 				3B4C16D71E84C18500BB2455 /* WinVC.swift */,
+				3B400FD01E8B450C004589AF /* CategoriesVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				3B4E53B61E83D48600D74ED4 /* BingoCell.swift */,
+				3B400FD21E8B463E004589AF /* CategoryCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -489,10 +495,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B4E53831E83733F00D74ED4 /* ViewController.swift in Sources */,
+				3B4E53831E83733F00D74ED4 /* MainVC.swift in Sources */,
 				3B4E53B71E83D48600D74ED4 /* BingoCell.swift in Sources */,
 				3BF59AC81E88F14800DE7EE3 /* Utilities.swift in Sources */,
 				3B4E53811E83733F00D74ED4 /* AppDelegate.swift in Sources */,
+				3B400FD11E8B450C004589AF /* CategoriesVC.swift in Sources */,
+				3B400FD31E8B463E004589AF /* CategoryCell.swift in Sources */,
 				3B4E53B51E83C04E00D74ED4 /* MainGridView.swift in Sources */,
 				3B4C16DD1E87A1DC00BB2455 /* FingoText.swift in Sources */,
 				3B4C16D81E84C18500BB2455 /* WinVC.swift in Sources */,
