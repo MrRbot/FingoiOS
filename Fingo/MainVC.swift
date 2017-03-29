@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ItemTappedDelegate {
+class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ItemTappedDelegate {
 
      var indexArray = [Int]()
     var numberOfRows: CGFloat!
@@ -29,12 +29,15 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let layout = UICollectionViewFlowLayout()
+        
         bingoCollectionView.delegate = self
         bingoCollectionView.dataSource = self
-        bingoCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        bingoCollectionView.collectionViewLayout = layout
         
-       
-       
+    
+    }
+    override func viewDidAppear(_ animated: Bool) {
         loadText()
     }
     
@@ -78,8 +81,14 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
         print(indexPath.row)
        
         if let cell = bingoCollectionView.cellForItem(at: indexPath) as? BingoCell{
-            cell.setSelectedState(index:indexPath.row)
-            cell.isUserInteractionEnabled = false
+            if !cell.select {
+               cell.setSelectedState(index:indexPath.row)
+            } else {
+                cell.setDeSelectState(index: indexPath.row)
+            }
+            
+            
+            //cell.isUserInteractionEnabled = false
             
         }
         
@@ -105,6 +114,28 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
             }
         }
        
+        
+        
+    }
+    
+    func itemTappedToDeSelect(index:Int) {
+        
+        switch index {
+        case 0...4:
+            filteredRow1.removeLast()
+        case 5...9:
+            filteredRow2.removeLast()
+        case 10...14:
+            filteredRow3.removeLast()
+        case 15...19:
+            filteredRow4.removeLast()
+        case 20...24:
+            filteredRow5.removeLast()
+            
+        default:
+            break
+        }
+        
         
         
     }
