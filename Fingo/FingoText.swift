@@ -39,7 +39,7 @@ class FingoText {
         
         _ref?.observe(FIRDataEventType.value, with: { (snapshot) in
             
-            
+                self.clearTextArray()
             if let dict = snapshot.value as? Dictionary<String,AnyObject> {
                     self._textArray = []
                 if let items = dict[category] as? Dictionary<String,AnyObject> {
@@ -78,7 +78,7 @@ class FingoText {
         
         
         _ref?.observe(FIRDataEventType.value, with: { (snapshot) in
-                self._catArray = []
+                self.clearCatArray()
            
             for group in snapshot.children {
                 self._catArray.append((group as AnyObject).key)

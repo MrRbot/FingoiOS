@@ -23,6 +23,12 @@ class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     var filteredRow4 = [Int]()
     var filteredRow5 = [Int]()
     
+    var filteredColumn1 = [Int]()
+    var filteredColumn2 = [Int]()
+    var filteredColumn3 = [Int]()
+    var filteredColumn4 = [Int]()
+    var filteredColumn5 = [Int]()
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var bingoCollectionView: UICollectionView!
     
@@ -120,7 +126,7 @@ class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func itemTappedToDeSelect(index:Int) {
-        
+    
         switch index {
         case 0...4:
             filteredRow1.removeLast()
@@ -150,7 +156,12 @@ class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         let alert = UIAlertController(title: "Katie says you didn't see:  \(fingoText.textArray[index])", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yeah, i did", style: .cancel, handler: nil))
         
+        
+        
+        
         switch index {
+        
+
         case 0...4:
         
             filteredRow1.append(index)
@@ -215,6 +226,76 @@ class MainVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                 present(winVC, animated: true, completion: nil)
             }
 
+        default:
+            break
+        }
+        
+        switch index {
+        case  0,5,10,15,20:
+            filteredColumn1.append(index)
+            if filteredColumn1.count == 3  {
+                
+                present(alert, animated: true, completion: nil)
+                
+                print("3 IN A ROW")
+            } else if filteredColumn1.count == 5 {
+                
+                
+                present(winVC, animated: true, completion: nil)
+                
+            }
+        case  1,6,11,16,21:
+            filteredColumn2.append(index)
+            if filteredColumn2.count == 3  {
+                
+                present(alert, animated: true, completion: nil)
+                
+                print("3 IN A ROW")
+            } else if filteredColumn2.count == 5 {
+                
+                
+                present(winVC, animated: true, completion: nil)
+                
+            }
+        case  2,7,17,22:
+            filteredColumn3.append(index)
+            if filteredColumn3.count == 3  {
+                
+                present(alert, animated: true, completion: nil)
+                
+                print("3 IN A ROW")
+            } else if filteredColumn3.count == 5 {
+                
+                
+                present(winVC, animated: true, completion: nil)
+                
+            }
+        case  3,8,13,18,23:
+            filteredColumn4.append(index)
+            if filteredColumn4.count == 3  {
+                
+                present(alert, animated: true, completion: nil)
+                
+                print("3 IN A ROW")
+            } else if filteredColumn4.count == 5 {
+                
+                
+                present(winVC, animated: true, completion: nil)
+                
+            }
+        case  4,9,14,19,24:
+            filteredColumn5.append(index)
+            if filteredColumn5.count == 3  {
+                
+                present(alert, animated: true, completion: nil)
+                
+                print("3 IN A ROW")
+            } else if filteredColumn5.count == 5 {
+                
+                
+                present(winVC, animated: true, completion: nil)
+                
+            }
         default:
             break
         }

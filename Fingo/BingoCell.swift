@@ -55,7 +55,9 @@ class BingoCell: UICollectionViewCell {
                 self.frame.size = self.size
             }
             
-            
+            if index == 12 {
+                delegate?.unicornTapped()
+            }
             
             
             

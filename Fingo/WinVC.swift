@@ -52,6 +52,10 @@ class WinVC: UIViewController {
        UserDefaults.standard.set(true, forKey: "firstTimeUnicornPressed")
         
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     /*
     // MARK: - Navigation
 
