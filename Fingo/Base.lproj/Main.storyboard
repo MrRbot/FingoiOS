@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="orange-grove.ttf">
+            <string>Orange-Grove</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--CategoriesVC-->
         <scene sceneID="tb2-7j-FuN">
@@ -60,7 +65,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLR-vb-62Q">
-                                <rect key="frame" x="50" y="388" width="220" height="50"/>
+                                <rect key="frame" x="50" y="416" width="220" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jYF-kB-RA6"/>
@@ -75,8 +80,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fingo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPi-7c-crO">
-                                <rect key="frame" x="112" y="326" width="96" height="54.5"/>
-                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="40"/>
+                                <rect key="frame" x="98.5" y="326" width="123.5" height="82.5"/>
+                                <fontDescription key="fontDescription" name="Orange-Grove" family="Orange Grove" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -125,7 +130,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bingoCell" id="NS3-Yc-IqB" customClass="BingoCell" customModule="Fingo" customModuleProvider="target">
-                                        <rect key="frame" x="43" y="0.0" width="203" height="184"/>
+                                        <rect key="frame" x="42.5" y="0.0" width="203" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="203" height="184"/>
@@ -157,8 +162,8 @@
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fingo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em7-om-QPb">
-                                <rect key="frame" x="8" y="326" width="304" height="54.5"/>
-                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="40"/>
+                                <rect key="frame" x="8" y="326" width="304" height="82.5"/>
+                                <fontDescription key="fontDescription" name="Orange-Grove" family="Orange Grove" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>

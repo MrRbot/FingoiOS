@@ -65,6 +65,7 @@
 		3B4E53A21E83733F00D74ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4E53B41E83C04E00D74ED4 /* MainGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGridView.swift; sourceTree = "<group>"; };
 		3B4E53B61E83D48600D74ED4 /* BingoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BingoCell.swift; sourceTree = "<group>"; };
+		3BE53C081E8E28F500AF20B7 /* orange-grove.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "orange-grove.ttf"; sourceTree = "<group>"; };
 		3BF59AC51E88EF8300DE7EE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BF59AC71E88F14800DE7EE3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		51EF664B69B50F7A85256EC5 /* Pods_FingoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FingoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +168,7 @@
 				3B4E53891E83733F00D74ED4 /* LaunchScreen.storyboard */,
 				3B4E538C1E83733F00D74ED4 /* Info.plist */,
 				3BF59AC51E88EF8300DE7EE3 /* GoogleService-Info.plist */,
+				3BE53C081E8E28F500AF20B7 /* orange-grove.ttf */,
 				3B4E53B41E83C04E00D74ED4 /* MainGridView.swift */,
 			);
 			path = Fingo;
